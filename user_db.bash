@@ -10,11 +10,13 @@ function main() {
   local password="$2";
   local hostname="$3";
   local db="$4";
+
   create_user "$user";
   create_db "$db" "$user";
+
   printf -v RDBMS_URI "postgres://$user:$password@$hostname/$db"
   export RDBMS_URI="$RDBMS_URI";
-  printf 'RDBMS_URI=%s\n' "'$RDBMS_URI'";
+  printf 'RDBMS_URI=%s\n' "$RDBMS_URI";
 }
 
 function usage() {
@@ -28,7 +30,7 @@ function create_db() {
   if psql -lqt | cut -d \| -f 1 | grep -Fqw "$db"; then
     return 0;
   fi
-  
+
   $(createdb "$db" --owner "$user");
 }
 
