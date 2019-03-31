@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -euo pipefail;
+set -aeuo pipefail;
 
 function main() {
   if [ -z "$1" ]; then
@@ -16,6 +16,7 @@ function main() {
 
   printf -v RDBMS_URI "postgres://$user:$password@$hostname/$db"
   export RDBMS_URI="$RDBMS_URI";
+  declare -x RDBMS_URI="$RDBMS_URI";
   printf 'RDBMS_URI=%s\n' "$RDBMS_URI";
 }
 
