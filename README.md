@@ -1,5 +1,8 @@
 offsh-postgres
 ==============
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech)
+[![License](https://img.shields.io/badge/license-Apache--2.0%20OR%20MIT-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
 Bash scripts to automate Postgres.
 
 ## user_db.bash
